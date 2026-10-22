@@ -1,0 +1,37 @@
+mystring='This is my important message!'
+    
+def sign(word,character='-'):
+    length=len(word)+4
+    print(character*length + '\n'+'| '+word+' |'+'\n'+character*length)
+
+sign(mystring,'n')
+
+
+def is_clean(string):
+    lister=[]
+    lower=string.lower()
+    random=list(lower)
+    for i in random:
+        if i not in [',','.','?','!',':',';',' ']:
+            lister.append(i)
+    return lister
+    
+def palindromefinder(word):
+    stringy=is_clean(word)
+    reverser=stringy[::-1]
+    return (reverser==stringy)
+ 
+print(palindromefinder('A man, a plan, a canal: Panama!'))
+
+def shift_digit(number, amount):
+    return (number + amount) % 10
+
+def codeshift(code, amount):
+    digits = [int(digit) for digit in str(code)]
+    return list(map(lambda digit: shift_digit(digit, amount), digits))
+
+print(codeshift(9934, 2))
+
+
+    
+
