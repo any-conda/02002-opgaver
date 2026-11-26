@@ -1,0 +1,43 @@
+inventory = {
+    "apples": 10,
+    "bananas": 5,
+    "oranges": 8,
+    "kiwis": 7
+}
+
+def restock(dictionary,amount):
+    for key in dictionary:
+        dictionary[key] +=amount
+    return dictionary
+
+print(restock(inventory,3))
+print(restock(inventory,4))
+
+player_stats = [
+    {"name": "Bob", "goals": 2, "passes": 15, "goal_attempts": 3, "pass_attempts": 17},
+    {"name": "Alex", "goals": 1, "passes": 17, "goal_attempts": 2, "pass_attempts": 20},
+    {"name": "Molly", "goals": 1, "passes": 28, "goal_attempts": 2, "pass_attempts": 31},
+    {"name": "Sophia", "goals": 2, "passes": 21, "goal_attempts": 3, "pass_attempts": 25}
+]
+
+def highscore(set):
+    for value in set:
+        counter=0
+        for thing in value:
+            goals=value['goals'] 
+            passes=value['passes']
+            goal_attempts=value['goal_attempts']
+            pass_attempts=value['pass_attempts']
+            new=(goals*20)+(passes*2)+(goal_attempts*5)+(pass_attempts)
+            newer=(new,value['name'])
+    if counter<new:
+       counter=new
+       print(newer,'new highscore')
+    return newer
+
+
+            
+
+
+
+highscore(player_stats)

@@ -1,0 +1,24 @@
+import math
+from typing import Literal
+
+DistributionType = Literal["rectangular", "square", "triangular"]
+
+
+def standard_uncertainty(
+    half_width: float,
+    distribution: DistributionType = "rectangular",) -> float:
+   
+    if half_width < 0:
+        raise ValueError(f"half_width must be non-negative, got {half_width}")
+
+    dist = distribution.lower().strip()
+
+    if dist in ("rectangular", "square"):
+        return half_width / math.sqrt(3)
+    elif dist == "triangular":
+        return half_width / math.sqrt(6)
+    else:
+        raise ValueError(
+            f"Unsupported distribution '{distribution}'. "
+            "Expected 'rectangular', 'square', or 'triangular'."
+        )
